@@ -13,10 +13,10 @@ import java.util.Collection;
 public class OrderItemController {
     @Autowired private OrderItemService service;
 
-    @RequestMapping("/")
-    public Collection<OrderItem> getAll(){
-        Collection<OrderItem> orderItems = service.getAll();
-        return orderItems;
-    }
+//    @RequestMapping("/")
+//    public Collection<OrderItem> getAll(){
+//        Collection<OrderItem> orderItems = service.getAll();
+//        return orderItems;
+//    }
 
 }

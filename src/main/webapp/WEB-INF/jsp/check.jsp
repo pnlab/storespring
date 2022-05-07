@@ -8,6 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Login</h1>
+check
+
+${user}
 </body>
 </html>

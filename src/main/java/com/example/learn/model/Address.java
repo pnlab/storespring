@@ -2,6 +2,8 @@ package com.example.learn.model;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "address")
 public class Address {
@@ -62,6 +64,8 @@ public class Address {
         this.zip = zip;
     }
 
+    
     @OneToOne(mappedBy = "address")
     private User user;
+
 }

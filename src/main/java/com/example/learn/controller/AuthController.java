@@ -25,27 +25,13 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/auth")
 @Transactional
-public class UserController {
+public class AuthController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/users")
-    public List<User> showUserList() {
-        List<User> all = userService.listAll();
-        for (User u : all) {
-            System.out.println(u);
-        }
-        return all;
-    }
 
-    @GetMapping("/user")
-    public Optional<User> getUser() {
-        Optional<User> user = userService.getOne(1);
-
-        return user;
-    }
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
@@ -61,12 +47,6 @@ public class UserController {
         return password.length() < 4;
     }
 
-    @GetMapping("/me")
-    public User getCurrentUser(Authentication authentication) {
-         CustomUserDetails u = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        return userService.findByUsername(authentication.getName());
-
-    }
 
 }

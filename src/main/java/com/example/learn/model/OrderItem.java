@@ -2,45 +2,39 @@ package com.example.learn.model;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 @Entity
-@Table(name = "order_item_entity") // name -> tên bảng trong mysql
+@Table(name = "order_item") // name -> tên bảng trong mysql
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     @ManyToOne
-    @JoinColumn(name = "productId", referencedColumnName="id") // name -> Tên cột trong table, referencedColumnName cột tham chiếu
+    @JoinColumn(name = "productId", referencedColumnName = "id") // name -> Tên cột trong table, referencedColumnName
+                                                                 // cột tham chiếu
     private Product product;
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-
-
 
     @Basic
     private Integer quantity;
 
-    public Integer getQuantity() {
-        return quantity;
-    }
+    @Basic
+    private Float price;
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "orderId", referencedColumnName = "id")
+    private Order order;
+
 }

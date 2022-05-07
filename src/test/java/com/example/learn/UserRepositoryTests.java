@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.annotation.Rollback;
 
 @DataJpaTest
@@ -15,15 +16,18 @@ import org.springframework.test.annotation.Rollback;
 @Rollback(value = false)
 public class UserRepositoryTests {
     @Autowired private UserRepository repo;
+    @Autowired
+    PasswordEncoder passwordEncoder;
     @Test
     public void testAddNew(){
         User user = new User();
-        user.setEmail("pvn10092001vn@gmail.com");
+        user.setEmail("pvn10092001@gmail.com");
         user.setPassword("123456");
         user.setFirstname("Nguyen");
         user.setLastname("Pham");
 
         User savedUser =repo.save(user);
+
 
 
         Assertions.assertThat(savedUser).isNotNull();
@@ -38,6 +42,14 @@ public class UserRepositoryTests {
             System.out.println(u);
         }
 
+    }
+    @Test
+    public void addUserPassword(){
+//        User user = new User();
+//        user.setUsername("loda");
+//        user.setPassword(passwordEncoder.encode("loda"));
+//        repo.save(user);
+        System.out.println("abc");
     }
 
     @Test
