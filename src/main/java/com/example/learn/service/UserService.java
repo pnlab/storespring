@@ -43,6 +43,7 @@ public class UserService {
         }
         return new CustomUserDetails(user);
     }
+
     public User registerUser(UserDto userDto){
         userRepository
                 .findOneByUsername(userDto.getUsername().toLowerCase())

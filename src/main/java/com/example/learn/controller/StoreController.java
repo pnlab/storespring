@@ -18,6 +18,7 @@ public class StoreController {
 
   @RequestMapping("/product")
   public Collection<Product> getAll() {
+
     Collection<Product> allProduct = service.getAll();
     return allProduct;
   }

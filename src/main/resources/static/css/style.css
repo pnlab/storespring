@@ -9,6 +9,8 @@ body {
     height: 1153px;
     width: 1643px;
     background:#fff;
+    margin-left: auto;
+    margin-right: auto;
 }
 #header{
     height:92px;
@@ -70,13 +72,7 @@ body {
 #grid-menu li.largeGrid a.active{background-position:-37px -33px;}
 
 
-#grid{
-    width: 1335px;
-    position: absolute;
-    left: 340px;
-    height: 1200px;
-    top: 180px;
-}
+
 #sidebar{
     float:left;
     background:#fff;

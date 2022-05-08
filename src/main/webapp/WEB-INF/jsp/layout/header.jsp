@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <header class="dieuhuong">
-    <!-- logo -->
+
     <div class="dieuhuong-trai">
         <a href="index.html">
             <img id="logo-image" src="https://www.logolynx.com/images/logolynx/b2/b23666d57f4e17102209423105dfc442.png"
@@ -19,14 +19,13 @@
                 <a href="#">Trứng và sữa</a>
                 <a href="#">Bánh</a>
                 <a href="#">Gia vị</a>
-                <c:forEach begin="0" end="${fn:length(categories) - 1}" var="index">
-                    <a href="#">${categories[index].getName()}</a>
-                </c:forEach>
+<%--                <c:forEach begin="0" end="${fn:length(categories) - 1}" var="index">--%>
+<%--                    <a href="#">${categories[index].getName()}</a>--%>
+<%--                </c:forEach>--%>
             </div>
         </div>
 
     </div>
-    <!-- Tim kiem -->
     <div id="timkiem">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/1024px-Search_Icon.svg.png"
              alt="">
@@ -34,7 +33,7 @@
         <input type="text">
 
     </div>
-    <!-- Dang nhap -->
+
     <div class="dieuhuong-phai">
 
         <div class="giohang-icon">
